@@ -1,33 +1,25 @@
 # BONK! Blast Arena
 
-A small online party shooter: join a room with friends, zip around a one-screen arena, and bonk each other with silly blasters. It runs in a browser, while a lightweight Python server handles movement, shots, hits, and scores. There is no complicated rigid-body physics.
+A quick online arena shooter for up to 12 friends. First to 10 KOs wins. Grab speed, rapid-fire, and shield upgrades.
 
-## Play locally
+## Controls
 
-Install Python 3, then in this folder run:
+- **WASD / arrows** move, **mouse** aims, **click / Space** fires
+- Touch screens get an on-screen D-pad and fire button; aim at the nearest rival
+- Three hits knock a player out; respawns are automatic
+
+## Run locally
 
 ```powershell
 python -m pip install -r requirements.txt
 python app.py
 ```
 
-Open [http://localhost:8000](http://localhost:8000). Open another tab to try multiplayer on the same computer.
+Open [http://localhost:8000](http://localhost:8000).
 
-## Put it online for friends
+## Deploy free on Render
 
-The included `render.yaml` is set up for a free Render web service. Render accepts Python WebSocket services and provides the public `onrender.com` link you can send to friends.
+The included `render.yaml` configures the service. In Render, choose **New → Blueprint**, select this GitHub repository, and deploy. Share the resulting `onrender.com` URL and room invite with friends.
 
-1. Put this project in a GitHub repository.
-2. In Render, choose **New → Blueprint**, connect that repository, and deploy the detected `render.yaml`.
-3. Open the service's `onrender.com` address. Make a room, then use **Copy invite** to share the room link.
-
-Free services sleep after 15 minutes without incoming traffic. The first visit after a sleep can take about a minute to wake the game. Active rooms are held in memory, so a service restart clears the room and players can rejoin using the same link.
-
-## Controls
-
-- **WASD** or **arrow keys** — move
-- **Mouse** — aim
-- **Click** or **Space** — fire
-- **3 hits** — score a bonk; players respawn automatically
-- Share the room link to get everyone into the same match (up to 12 players)
+Free Render services sleep after 15 minutes of inactivity. The first visit after sleep can take about a minute; server restarts clear active matches.
 
